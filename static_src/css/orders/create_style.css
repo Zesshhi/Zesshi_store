@@ -1,0 +1,49 @@
+@media (max-width: 1200px){
+    .create-text{
+        font-size: 13px;
+    }
+}
+@media (max-width: 991px){
+    li{
+        font-size: 12px;
+    }
+    .create-text{
+        font-size: 9px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    .create-total{
+        font-size: 12px;
+    }
+}
+@media (max-width: 767px) {
+    label{
+        font-size: 12px;
+    }
+}
+@media (max-width: 450px){
+    li{
+        font-size: 10px;
+    }
+    h3{
+        font-size: 16px;
+    }
+    .create-total{
+        font-size: 10px;
+    }
+}
+@media (max-width: 367px){
+    li{
+        font-size: 7px;
+    }
+    .create-text{
+        font-size: 7px;
+    }
+    h3{
+        font-size: 14px;
+    }
+    label{
+        font-size: 10px;
+    }
+}

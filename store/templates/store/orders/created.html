@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Спасибо за покупку{% endblock %}
+
+{% block content %}
+    <section class="text-center mt-4">
+        <div class="container">
+            <h1>Спасибо за покупку</h1>
+            <p>Заказ был успешно размещён. Номер вашего заказа:
+                <strong>#{{ order.id }}</strong>.</p>
+        </div>
+    </section>
+{% endblock %}

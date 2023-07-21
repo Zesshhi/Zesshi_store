@@ -1,0 +1,62 @@
+body {
+    background-color: #f3f3f3;
+    font-family: 'Nunito', sans-serif
+}
+
+.card {
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0px 0px 25px -14px rgba(34, 60, 80, 0.2);
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: #a0bad5;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #fff;
+    border-radius: 50%;
+    float: left;
+}
+
+.bg {
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.user-info {
+    margin-left: 1rem;
+    display: inline-block;
+}
+
+.login {
+    margin: 0;
+    font-weight: 600;
+}
+
+.s {
+    font-size: 0.9rem;
+    color: #666
+}
+
+.g {
+    background: #efefef;
+}
+
+.gl {
+    background: #f5f5f5;
+}
+
+.product img {
+    width: 50px;
+    border-radius: 15px;
+    border: 1px solid #efefef
+}

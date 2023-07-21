@@ -1,0 +1,7 @@
+<div class="col-md-8 col-lg-6 m-auto">
+    <div class="section-genres text-center mb-5 mt-5">
+        {% for genre in genre %}
+        <a href="{{ genre.get_absolute_url }}">{{ genre.title }}</a>
+        {% endfor %}
+    </div>
+</div>

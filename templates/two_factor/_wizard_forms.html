@@ -1,0 +1,32 @@
+{% load widget_tweaks %}
+{{ wizard.management_form }}
+
+{{ wizard.form.non_field_errors }}
+
+
+{% if wizard.form.username %}
+    <div>
+        <label for="">{{ wizard.form.username.label }}</label>
+        <div class="mb-3 mt-3">{% render_field form.username|add_class:"form-control" %}</div>
+    </div>
+
+    <div>
+        <label for="">{{ wizard.form.password.label }}</label>
+        <div class="mb-3 mt-3">{% render_field form.password|add_class:"form-control" %}</div>
+    </div>
+{% elif wizard.form.method %}
+    <div class="mb-3">
+        {{ wizard.form.method }}
+    </div>
+{% elif wizard.form.token %}
+    <div>
+        <label for="">{{ wizard.form.token.label }}</label>
+        <div class="mb-3 mt-3">{% render_field form.token|add_class:"form-control" %}</div>
+    </div>
+{% else %}
+    <div>
+        <label for="">{{ wizard.form.otp_token.label }}</label>
+        <div class="mb-3 mt-3">{% render_field form.otp_token|add_class:"form-control" %}</div>
+    </div>
+{% endif %}
+

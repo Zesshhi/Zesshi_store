@@ -1,0 +1,17 @@
+{% load static %}
+<div class="card popular-card text-center">
+    <h4>Топ игр</h4>
+    {% for post in posts %}
+        <a href="{{ post.get_absolute_url }}" class="popular">
+            <div>
+                {% if post.photo %}
+                    <img src="{{ post.photo.url }}" alt="{{ post.title }}" width="150">
+                {% else %}
+                    <img src="{% static 'img/no_image.png' %}" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <p>{{ post.title }}</p>
+        </a>
+    {% endfor %}
+</div>
+

@@ -1,0 +1,16 @@
+# requirements.in
+
+django
+django-ckeditor
+django-two-factor-auth
+django-debug-toolbar
+django-timezone-field
+django-widget-tweaks
+pip-review
+pip-tools
+psycopg[binary]
+python-decouple
+Pillow
+requests
+requests-cache
+

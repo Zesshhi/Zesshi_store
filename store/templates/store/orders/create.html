@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Оплата{% endblock %}
+
+{% block content %}
+
+    <section>
+        <div class="container mt-4">
+            <h1 class="text-center">Оплата</h1>
+            <div class="order-info">
+                <h3>Ваш заказ:</h3>
+                <ul>
+                    {% for item in cart %}
+                        <li>
+                            {{ item.quantity }}x <span
+                                class="fw-bold create-text"> {{ item.post.title }} </span>{{ item.product.title }}
+                            <span>{{ item.total_price }} ₽</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p class="fw-bold create-total">Итого: {{ cart.get_total_price }} ₽</p>
+            </div>
+            {% if cart.get_total_price > 0 %}
+                <form action="" method="post" class="order-form">
+                    {{ form.as_p }}
+                    <input type="submit" value="Оплатить" class="btn btn-dark"/>
+                    {% csrf_token %}
+                </form>
+            {% else %}
+                <form action="" method="post" class="order-form">
+                    <p>
+                        <button type="submit" class="btn btn-dark">Оплатить</button>
+                    </p>
+                    {% csrf_token %}
+                </form>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

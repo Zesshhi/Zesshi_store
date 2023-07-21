@@ -1,0 +1,51 @@
+body {
+    background-color: #f3f3f3;
+    font-family: 'Nunito', sans-serif
+}
+
+.main-detail {
+    background-color: #fff;
+}
+
+.card-detail {
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+    box-shadow: 0px 0px 25px -14px rgba(34, 60, 80, 0.2);
+    margin-bottom: 1.5rem;
+    border: none;
+    padding: 0;
+}
+
+.summary {
+    background-color: #6495ed;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 4vh;
+    color: #fff;
+}
+
+@media (max-width: 415px) {
+    .summary, .card {
+        border-radius: 0px;
+    }
+}
+
+.main-cart {
+    padding: 4vh;
+}
+
+.cart-item-img {
+    max-width: 100px
+}
+
+.cart-i {
+    box-sizing: border-box;
+    display: block;
+    background-image: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px 10px 0px 0px;
+    padding: 0px;
+    max-width: 100%;
+}

@@ -1,0 +1,51 @@
+version: '3.10'
+
+services:
+  django:
+    restart: always
+    build: .
+    container_name: ps_store_prod_django
+    command: >
+      sh -c "python manage.py makemigrations && 
+      python manage.py migrate &&
+      python manage.py collectstatic --noinput &&
+      gunicorn --reload --access-logfile - --workers 3 -b 0.0.0.0:8000 ps_store.wsgi:application"
+    volumes:
+      - .:/ps_store
+      - static_volume:/home/ps_store/web/static
+      - media_volume:/home/ps_store/web/media
+    expose:
+      - 8000
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+
+  postgres:
+    restart: always
+    image: postgres:15.1-alpine
+    container_name: ps_store_prod_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - '5432:5432'
+    env_file:
+      .env
+
+
+  nginx:
+    restart: always
+    build: ./nginx
+    container_name: ps_store_prod_nginx
+    volumes:
+      - static_volume:/home/ps_store/web/static
+      - media_volume:/home/ps_store/web/media
+    ports:
+      - "80:80"
+    depends_on:
+      - django
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

@@ -1,0 +1,70 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <a class="navbar-brand nav-main-store" href="{% url 'home' %}">
+                <i class="bi bi-playstation"></i>
+                PS Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height:
+                100px;">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link nav-main-txt" aria-current="page"
+                           href="{% url 'profile' %}">
+                            <i class="bi bi-person"></i>Личный кабинет</a>
+                    </li>
+                    <li class="nav-item">
+                        {% with total_items=cart|length %}
+                        {% if cart|length > 0 %}
+                        <a class="nav-link cart nav-main-txt" href="{% url  'cart_detail' %}">
+                            <i class="bi bi-cart3"></i>Корзина
+                            <span class="badge  text-bg-danger rounded-pill">{{ total_items }}</span>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'home' %}" class="nav-link cart nav-main-txt">
+                            <i class="bi bi-cart3"></i>Корзина
+                        </a>
+                        {% endif %}
+                        {% endwith %}
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link nav-main-txt">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Выход</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link nav-main-txt " aria-current="page" href="{% url 'login' %}">
+                            <i class="bi bi-person"></i>
+                            Личный кабинет</a>
+                    </li>
+                    <li class="nav-item">
+                        {% with total_items=cart|length %}
+                        {% if cart|length > 0 %}
+                        <a class="nav-link cart nav-main-txt " href="{% url  'cart_detail' %}">
+                            <i class="bi bi-cart3"></i>Корзина
+                            <span class="badge text-bg-danger rounded-pill">{{ total_items }}</span>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'home' %}" class="nav-link cart nav-main-txt ">
+                            <i class="bi bi-cart3"></i>Корзина
+                        </a>
+                        {% endif %}
+                        {% endwith %}
+                    </li>
+                    {% endif %}
+                </ul>
+                <a href="{% url 'contact' %}" class="nav-link nav-main-txt nav-contact me-5">Обратная связь</a>
+                <form action="{% url 'search' %}" method="get" class="d-flex" role="search">
+                    <input name="search" class="form-control me-2 search-input" type="search" placeholder="Поиск"
+                           aria-label="Search">
+                    <button class="btn btn-primary search-button me-2" type="submit">Найти</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>

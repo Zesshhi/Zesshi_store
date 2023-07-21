@@ -1,0 +1,102 @@
+body {
+    background-color: #f3f3f3;
+    font-family: 'Nunito', sans-serif
+}
+
+.single-card {
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0px 0px 25px -14px rgba(34, 60, 80, 0.2);
+    margin-bottom: 1.5rem;
+    border: none;
+}
+
+
+.bg {
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.single-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.single-price {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.pro-qty {
+    display: inline-block;
+    position: relative;
+}
+
+.single-genre a {
+    text-decoration: none;
+}
+
+.pro-qty input {
+    width: 170px;
+    height: 50px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    color: #231942;
+    font-weight: 700;
+    padding: 0 55px;
+    text-align: center;
+}
+
+.pro-qty .dec {
+    left: 0;
+    border-right: 1px solid #cdcdcd;
+    padding-left: 5px;
+    line-height: 22px;
+}
+
+.pro-qty .inc {
+    right: 0;
+    border-left: 1px solid #cdcdcd;
+    padding-right: 5px;
+}
+
+.pro-qty .qty-btn {
+    cursor: pointer;
+    position: absolute;
+    line-height: 21px;
+    color: #555;
+    height: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    width: 53px;
+    text-align: center;
+    transition: all .5s ease 0s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.single-btn {
+    background-color: rgb(100, 149, 237);
+    border: 2px solid rgb(100, 149, 237);
+    box-shadow: none;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    height: 50px;
+    line-height: 37px;
+    padding: 5px 25px 5px 25px;
+    text-align: center;
+}
+
+.single-btn:hover {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    color: #fff
+}

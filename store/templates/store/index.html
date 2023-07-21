@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load sidebar %}
+{% load cache %}
+
+
+
+{% block content %}
+ <section>
+    <div class="container">
+        <div class="row">
+            {% cache 500 sidebar %}
+            {% include 'inc/_sidebar_by_genre.html' %}
+            {% endcache %}
+        </div>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="product-item">
+                    <div class="product-thumb mb-3">
+                        <span class="ilabel">{{ post.version_of_platform }}</span>
+                        {% if post.photo %}
+                        <a href="{{ post.get_absolute_url }}">
+                            <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+                        </a>
+                        {% else %}
+                        <img src="{% static 'img/no_image.png' %}" alt="{{ post.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="product-info">
+                        <h4 class="title mb-3"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </h4>
+                        <div class="prices d-flex justify-content-between">
+                            <div class="price align-self-center">{{ post.price }} ₽</div>
+                            <form action="{% url 'cart_add' post.id %}" method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="buy">Купить <i class="bi bi-cart-plus"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <h3 class="mt-4 text-center">По вашему запросу ничего не найдено</h3>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="d-flex justify-content-center">
+    {% include 'inc/_pagination.html' %}
+</div>
+{% endblock %}
+
+
+
+
+
